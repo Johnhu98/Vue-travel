@@ -1,6 +1,6 @@
 <template>
   <div class="icons">
-    <swiper>
+    <swiper :options="swiperOption">
       <swiper-slide v-for="(page, index) of pages" :key="index">
         <div
           class="icon"
@@ -22,10 +22,14 @@ export default {
   name: 'HomeIcons',
   data () {
     return {
+      swiperOption: {
+        pagination: '',
+        loop: false
+      },
       iconList: [{
         id: '0001',
         imgUrl: 'https://imgs.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png',
-        desc: '景点门票景点门票景点门票景点门票景点门票景点门票景点门票'
+        desc: '景点门票'
       }, {
         id: '0002',
         imgUrl: 'https://imgs.qunarzz.com/piao/fusion/1803/6c/9e54a8540fee0102.png',
@@ -83,33 +87,35 @@ export default {
   .icons >>> .swiper-container
     height: 0
     padding-bottom: 50%
-  .icon
-    position relative
-    overflow: hidden
-    float: left
-    width: 25%
-    height: 0
-    padding-bottom: 25%
-    .icon-img
-      position: absolute
-      top: 0
-      left: 0
-      right: 0
-      bottom: .44rem
-      box-sizing: border-box
-      padding: .1rem
-      .icon-img-content
-        display: block
-        margin: 0 auto
-        height: 100%
-    .icon-desc
-        text-align: center
+  .icons
+    margin-top: .1rem
+    .icon
+      position relative
+      overflow: hidden
+      float: left
+      width: 25%
+      height: 0
+      padding-bottom: 25%
+      .icon-img
         position: absolute
+        top: 0
         left: 0
         right: 0
-        bottom: 0
-        height: .44rem
-        line-height: .44rem
-        color: $darkTextColor
-        ellipsis()
+        bottom: .44rem
+        box-sizing: border-box
+        padding: .1rem
+        .icon-img-content
+          display: block
+          margin: 0 auto
+          height: 100%
+      .icon-desc
+          text-align: center
+          position: absolute
+          left: 0
+          right: 0
+          bottom: 0
+          height: .44rem
+          line-height: .44rem
+          color: $darkTextColor
+          ellipsis()
 </style>
