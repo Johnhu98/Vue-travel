@@ -1,7 +1,7 @@
 <template>
   <div>
     <city-header></city-header>
-    <city-search></city-search>
+    <city-search :cities="cities"></city-search>
     <city-list
       :cities="cities"
       :hot="hotCities"
@@ -38,13 +38,9 @@ export default {
     getCityInfoSucc (res) {
       res = res.data
       if (res.ret && res.data) {
-        console.log(res)
         const data = res.data
         this.cities = data.cities
         this.hotCities = data.hotCities
-        this.iconList = data.iconList
-        this.recommendList = data.recommendList
-        this.weekendList = data.weekendList
       }
     },
     handleLetterChange (letter) {
