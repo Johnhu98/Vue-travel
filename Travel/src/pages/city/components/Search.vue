@@ -66,6 +66,11 @@ export default {
       }, 100)
     }
   },
+  methods: {
+    handleCityClick (city) {
+      this.$store.commit('changeCity', city)
+    }
+  },
   mounted () {
     this.scroll = new Bscroll(this.$refs.search)
   }
